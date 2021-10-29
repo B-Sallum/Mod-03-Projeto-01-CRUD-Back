@@ -3,9 +3,15 @@ const router = express.Router();
 
 let message = "";
 
+function pleseGiveMeAnId() {
+  let gameId = (Math.random() * 100000) * (Math.random() * 100000);
+  let newGameId = gameId.toFixed(0);
+  return newGameId;
+};
+
 const gamesList = [
   {
-    id: 1,
+    id: pleseGiveMeAnId(),
     name: "Super Mario World",
     category: "Platform",
     year: 1990,
@@ -14,7 +20,7 @@ const gamesList = [
     rating: 10
   },
   {
-    id: 2,
+    id: pleseGiveMeAnId(),
     name: "Zelda: Ocarina of Time",
     category: "Action RPG",
     year: 1998,
@@ -31,15 +37,9 @@ function pleaseCheck(game) {
     game.imgUrl == undefined) {
     return false;
   } else {
-    return true
+    return true;
   };
 }; // /([a-zA-Z0-9])/
-
-function pleseGiveMeAnId() {
-  let listSize = gamesList.length;
-  let gameId = listSize + 1
-  return gameId
-};
 
 router.get('/', (req, res) => {
   res.send(gamesList);
@@ -67,10 +67,8 @@ router.post('/new', (req, res) => {
   if (validation === true) {
     gamesList.push(newGame);
     console.log(`User just Added ${newGame.name}`);
-    res.status(201).send({
-      message: 'Thanks for Your Contribution! 💚',
-      data: newGame
-    });
+    message = `Game ID ${newGame.id}. ${newGame.name} Added to Games! Thanks for Your Contribution! 💚`;
+    res.status(201).send(message);
   } else {
     res.send('Please Add a New Game via JSON: "name", "category", "year", "imgUrl", "havePlay": boolean and "rating": (1~10)');
   };
@@ -88,21 +86,19 @@ router.put('/edit/:id', (req, res) => {
       ...gameEdit
     };
     console.log(`Someone just Altered ${oldGame.name}!`);
-    res.status(201).send({
-      message: 'Thanks for Your Contribution! 💚',
-      oldData: oldGame,
-      newData: gameEdit
-    });
+    message = `${gameEdit.name} Successfully Shanged`;
+    res.status(201).send(message);
   } else {
     res.send('Please Edit Game at /edit/:id via JSON body: "name", "category", "year", "imgUrl", "havePlay": boolean and "rating": (1~10)');
   };
 });
 
 router.delete('/delete/:id', (req, res) => {
-  const game = req.params.id;
-  
-
-  message = game
+  const idParam = req.params.id;
+  const index = gamesList.findIndex(game => game.id == idParam);
+  const gameDel = gamesList[index];
+  gamesList.splice(index, 1);
+  message = `${gameDel.name} Successfully Deleted`;
   res.send(message);
 });
 
