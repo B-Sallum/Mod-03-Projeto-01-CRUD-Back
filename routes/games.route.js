@@ -27,6 +27,15 @@ const gamesList = [
     imgUrl: 'https://c.tenor.com/xaasBJILRhMAAAAd/zelda-oot.gif',
     havePlay: true,
     rating: 10
+  },
+  {
+    id: pleseGiveMeAnId(),
+    name: "Super Mario Kart",
+    category: "Race Shooter",
+    year: 1992,
+    imgUrl: 'https://c.tenor.com/oiGywgDXSx8AAAAC/mario-mario-kart.gif',
+    havePlay: true,
+    rating: 10
   }
 ];
 
