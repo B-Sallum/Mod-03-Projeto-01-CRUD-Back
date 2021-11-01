@@ -67,14 +67,14 @@ const gamesList = [
 ];
 
 function pleaseCheck(game) {
-  if (game.name == undefined ||
-    game.category == undefined ||
-    game.year == undefined ||
-    game.imgUrl == undefined) {
-    return false;
-  } else {
+  // if (game.name == undefined ||
+  //   game.category == undefined ||
+  //   game.year == undefined ||
+  //   game.imgUrl == undefined) {
+  //   return false;
+  // } else {
     return true;
-  };
+  // };
 }; // /([a-zA-Z0-9])/
 
 router.get('/', (req, res) => {
@@ -99,22 +99,22 @@ router.post('/new', (req, res) => {
     havePlay: havePlay,
     rating: rating
   };
-  let validation = pleaseCheck(newGame);
-  if (validation === true) {
+  let validationStatus = pleaseCheck(newGame);
+  if (validationStatus === true) {
     gamesList.push(newGame);
     console.log(`User just Added ${newGame.name}`);
     message = `Game ID ${newGame.id}. ${newGame.name} Added to Games! Thanks for Your Contribution! 💚`;
     res.status(201).send(message);
   } else {
-    res.send('Please Add a New Game via JSON: "name", "category", "year", "imgUrl", "havePlay": boolean and "rating": (1~10)');
+    res.send(validationStatus);
   };
 });
 
 router.put('/edit/:id', (req, res) => {
   const idParam = req.params.id;
   let gameEdit = req.body;
-  let validation = pleaseCheck(gameEdit);
-  if (validation === true) {
+  let validationStatus = pleaseCheck(gameEdit);
+  if (validationStatus === true) {
     const index = gamesList.findIndex(game => game.id == idParam);
     let oldGame = gamesList[index]
     gamesList[index] = {
@@ -122,10 +122,10 @@ router.put('/edit/:id', (req, res) => {
       ...gameEdit
     };
     console.log(`Someone just Altered ${oldGame.name}!`);
-    message = `${gameEdit.name} Successfully Shanged`;
+    message = `${gameEdit.name} Successfully Changed`;
     res.status(201).send(message);
   } else {
-    res.send('Please Edit Game at /edit/:id via JSON body: "name", "category", "year", "imgUrl", "havePlay": boolean and "rating": (1~10)');
+    res.send(validationStatus);
   };
 });
 
