@@ -17,7 +17,7 @@ let gamesList = [
     year: 1990,
     imgUrl: 'https://upload.wikimedia.org/wikipedia/pt/0/06/Super-Mario-World.jpg',
     havePlay: "checked",
-    rating: undefined
+    rating: 5
   },
   {
     id: pleseGiveMeAnId(),
@@ -26,7 +26,7 @@ let gamesList = [
     year: 1991,
     imgUrl: 'https://1.bp.blogspot.com/-0_RMZLKFCac/X0ObUFOrZPI/AAAAAAAACzw/t9BEnzXfbXExcUracTEcc1fHTf5aG7WNQCLcBGAsYHQ/s2048/Zelda_SNES.jpg',
     havePlay: "",
-    rating: undefined
+    rating: 7
   },
   {
     id: pleseGiveMeAnId(),
@@ -35,7 +35,7 @@ let gamesList = [
     year: 1992,
     imgUrl: 'https://upload.wikimedia.org/wikipedia/pt/f/fc/Super_Mario_Kart_front.jpg',
     havePlay: "checked",
-    rating: undefined
+    rating: 9
   },
   {
     id: pleseGiveMeAnId(),
@@ -44,7 +44,7 @@ let gamesList = [
     year: 1992,
     imgUrl: 'https://www.sega-brasil.com.br/fullalbums/jogos/Mega%20Drive/Caixas%20de%20Plastico%20Preta/Sonic%20the%20Hedgehog/sonic_ft_c_zfm_sls.jpg',
     havePlay: "",
-    rating: undefined
+    rating: 10
   },
   {
     id: pleseGiveMeAnId(),
@@ -53,7 +53,7 @@ let gamesList = [
     year: 1994,
     imgUrl: 'https://upload.wikimedia.org/wikipedia/pt/8/83/Donkey_Kong_Country_capa.png',
     havePlay: "",
-    rating: undefined
+    rating: 5
   },
   {
     id: pleseGiveMeAnId(),
@@ -62,7 +62,7 @@ let gamesList = [
     year: 1991,
     imgUrl: 'https://www.sega-brasil.com.br/fullalbums/jogos/Master%20System/Caixas%20de%20Papelao%20Branca/Alex%20Kidd%20in%20Miracle%20World/alexkiddinmiracleworld_ft_zfm_sls.png',
     havePlay: "",
-    rating: undefined
+    rating: 9
   }
 ];
 
