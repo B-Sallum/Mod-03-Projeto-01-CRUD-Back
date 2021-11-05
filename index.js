@@ -3,7 +3,7 @@ const cors = require('cors');
 
 const app = express();
 
-const gamesRouter = require('./routes/games.route');
+const gamesRouter = require('./routes/games.routes');
 
 app.use(express.json());
 app.use(cors());
