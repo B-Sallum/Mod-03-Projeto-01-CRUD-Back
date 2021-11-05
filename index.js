@@ -1,10 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 
-const app = express();
-
 const gamesRouter = require('./routes/games.routes');
 
+const app = express();
 app.use(express.json());
 app.use(cors());
 
