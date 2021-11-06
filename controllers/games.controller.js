@@ -129,6 +129,8 @@ class gamesController {
     const gameDel = gamesList[index];
   
     gamesList.splice(index, 1);
+
+    console.log(`User just Deleted ${gameDel.name}`);
   
     message = `${gameDel.name} Successfully Deleted`;
   
