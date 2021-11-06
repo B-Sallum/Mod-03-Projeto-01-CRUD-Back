@@ -40,7 +40,7 @@ let gamesList = [
     category: "Racing Platform",
     year: 1992,
     imgUrl: 'https://www.sega-brasil.com.br/fullalbums/jogos/Mega%20Drive/Caixas%20de%20Plastico%20Preta/Sonic%20the%20Hedgehog/sonic_ft_c_zfm_sls.jpg',
-    havePlay: false,
+    havePlay: true,
     rating: 10
   },
   {
@@ -105,10 +105,13 @@ class gamesController {
   editById = (req, res) => {
     const idParam = req.params.id;
     let gameEdit = req.body;
-  
+
+    console.log(gameEdit);
+
     const index = gamesList.findIndex(game => game.id == idParam);
   
-    let oldGame = gamesList[index]
+    let oldGame = gamesList[index];
+
     gamesList[index] = {
       ...gamesList[index],
       ...gameEdit
@@ -116,7 +119,7 @@ class gamesController {
   
     console.log(`Someone just Altered ${oldGame.name}!`);
   
-    message = `${gameEdit.name} Successfully Changed`;
+    message = `${oldGame.name} Successfully Changed`;
   
     res.status(201).send({message: message});
   }
