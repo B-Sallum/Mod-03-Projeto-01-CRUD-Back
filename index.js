@@ -9,7 +9,7 @@ app.use(cors());
 
 app.use('/', gamesRouter);
 
-const port = 3000;
+const port = 3002;
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`)
